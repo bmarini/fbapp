@@ -1,0 +1,3 @@
+module Fbdev
+  # Your code goes here...
+end
