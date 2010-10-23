@@ -12,7 +12,7 @@ Gem::Specification.new do |s|
   s.summary     = %q{TODO: Write a gem summary}
   s.description = %q{TODO: Write a gem description}
 
-  s.rubyforge_project = "fbdev"
+  s.add_dependency "thor", "0.14.3"
 
   s.files         = `git ls-files`.split("\n")
   s.test_files    = `git ls-files -- {test,spec,features}/*`.split("\n")
