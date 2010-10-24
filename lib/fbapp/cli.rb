@@ -1,6 +1,6 @@
 require "thor"
 
-module Fbdev
+module Fbapp
   class CLI < Thor
     desc "list", "List your facebook apps"
     def list

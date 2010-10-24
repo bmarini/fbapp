@@ -1,21 +1,21 @@
 # -*- encoding: utf-8 -*-
 $:.push File.expand_path("../lib", __FILE__)
-require "fbdev/version"
+require "fbapp/version"
 
 Gem::Specification.new do |s|
-  s.name        = "fbdev"
-  s.version     = Fbdev::VERSION
+  s.name        = "fbapp"
+  s.version     = Fbapp::VERSION
   s.platform    = Gem::Platform::RUBY
-  s.authors     = ["TODO: Write your name"]
-  s.email       = ["TODO: Write your email address"]
-  s.homepage    = "http://rubygems.org/gems/fbdev"
-  s.summary     = %q{TODO: Write a gem summary}
-  s.description = %q{TODO: Write a gem description}
+  s.authors     = ["Ben Marini"]
+  s.email       = ["bmarini@gmail.com"]
+  s.homepage    = "http://github.com/bmarini/fbapp"
+  s.summary     = %q{Command line interface to your facebook apps}
+  s.description = %q{Command line interface to your facebook apps}
 
   s.add_dependency "thor", "0.14.3"
   # s.add_dependency "celerity", "0.8.2"
   # s.add_dependency "jruby-openssl"
-  s.add_dependency "mechanize"
+  s.add_dependency "mechanize", "1.0.0"
 
   s.files         = `git ls-files`.split("\n")
   s.test_files    = `git ls-files -- {test,spec,features}/*`.split("\n")

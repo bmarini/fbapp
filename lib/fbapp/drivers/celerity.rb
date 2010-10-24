@@ -1,6 +1,6 @@
 require "celerity"
 
-module Fbdev
+module Fbapp
   module Drivers
     class Celerity < Base
       def list

@@ -1,9 +1,9 @@
-module Fbdev
+module Fbapp
   module Drivers
     class Base
 
       def get_or_cache_credentials
-        credfile = File.expand_path("~/fbdev")
+        credfile = File.expand_path("~/fbapp")
         if File.exist?(credfile)
           email, pass = File.read(credfile).split("\n")
         else

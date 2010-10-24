@@ -1,6 +1,6 @@
 require 'mechanize'
 
-module Fbdev
+module Fbapp
   module Drivers
     class Mechanize < Base
       def list
