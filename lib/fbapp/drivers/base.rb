@@ -1,3 +1,5 @@
+require 'highline'
+
 module Fbapp
   module Drivers
     class Base
@@ -7,8 +9,9 @@ module Fbapp
         if File.exist?(credfile)
           email, pass = File.read(credfile).split("\n")
         else
-          email = ask("Email:")
-          pass  = ask("Password:")
+          highline = HighLine.new
+          email    = highline.ask("Email:    ")
+          pass     = highline.ask("Password: ") { |q| q.echo = false }
 
           File.open(credfile, "w+") do |f|
             f.puts email

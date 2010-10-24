@@ -15,7 +15,8 @@ Gem::Specification.new do |s|
   s.add_dependency "thor", "0.14.3"
   # s.add_dependency "celerity", "0.8.2"
   # s.add_dependency "jruby-openssl"
-  s.add_dependency "mechanize", "1.0.0"
+  s.add_dependency "mechanize", "~> 1.0"
+  s.add_dependency "highline", "~> 1.6"
 
   s.files         = `git ls-files`.split("\n")
   s.test_files    = `git ls-files -- {test,spec,features}/*`.split("\n")
