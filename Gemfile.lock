@@ -2,7 +2,7 @@ PATH
   remote: .
   specs:
     fbapp (0.0.1)
-      mechanize
+      mechanize (= 1.0.0)
       thor (= 0.14.3)
 
 GEM
@@ -19,5 +19,5 @@ PLATFORMS
 
 DEPENDENCIES
   fbapp!
-  mechanize
+  mechanize (= 1.0.0)
   thor (= 0.14.3)
