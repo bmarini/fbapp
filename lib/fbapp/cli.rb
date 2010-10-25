@@ -12,6 +12,11 @@ module Fbapp
       driver.show(app)
     end
 
+    desc "edit", "Edit app settings"
+    def edit(app)
+      driver.edit(app)
+    end
+
     protected
     def driver
       @driver ||= Drivers::Mechanize.new

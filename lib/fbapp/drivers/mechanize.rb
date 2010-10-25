@@ -19,24 +19,35 @@ module Fbapp
       def show(appname)
         login
         page = browser.get("http://www.facebook.com/developers/apps.php")
+        app  = fetch_app(page, appname)
 
-        id = begin
-          apps = fetch_apps(page)
-          apps.find { |a| a.name == appname || a.app_id == appname }.app_id
-        end
-
-        dl = page.search("##{id}_info .dev_application_info dl")
+        dl = page.search("##{app.app_id}_info .dev_application_info dl")
 
         titles, values = dl.search("dt"), dl.search("dd")
         titles = titles.to_a.map { |t| t.text }
         values = values.to_a.map { |v| v.text }
 
-        puts "Settings for #{appname}:"
+        titles.delete("Sample Code")
+        titles.delete("API Key")
+
+        puts "Settings for #{app.name}:"
 
         settings = Hash[ titles.zip(values) ]
         titles.sort.each do |title|
           puts "* #{title.ljust(19)} : #{settings[title]}"
         end
+      end
+
+      # Possible settings to edit:
+      # * application_name
+      # * connect_url
+      # * base_domain
+      def edit(appname)
+        login
+        page = browser.get("http://www.facebook.com/developers/apps.php")
+        app  = fetch_app(page, appname)
+        page = browser.get("http://www.facebook.com/developers/editapp.php?app_id=#{app.app_id}")
+        form = page.form("editapp")
       end
 
       def browser
@@ -52,6 +63,11 @@ module Fbapp
         form.pass  = pass
 
         browser.submit(form)
+      end
+
+      def fetch_app(page, id_or_name)
+        apps = fetch_apps(page)
+        apps.find { |a| a.name == id_or_name || a.app_id == id_or_name }
       end
 
       # Assumes page is http://www.facebook.com/developers/apps.php
